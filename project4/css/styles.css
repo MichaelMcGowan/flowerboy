@@ -1,0 +1,122 @@
+/*styles.css*/
+#map {
+ height: 400px;
+ width: 100%;
+}
+
+.header {
+  min-height: 55px;
+  background-image: url(../images/header.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 400px){
+  .header{
+    background-image: url(../images/headerM.png);
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
+
+img.profile_image {
+  border-radius: 50%;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-right: 20px;
+  border:2px solid #FFD700;
+}
+
+.tweet-name{
+  font-family:helvetica;
+  color:black;
+  font-weight:bold;
+  vertical-align: top;
+  margin:5px;
+  padding:5px;
+display:inline-block;
+float:left;
+}
+
+/*img.tweetimg{
+  border-radius:50%;
+  float:left;
+  margin:10px;
+  padding-top: 20px;
+}*/
+
+.tweet-text{
+  color:black;
+  font-weight: lighter;
+  vertical-align: top;
+}
+
+.box-it{
+  border-bottom:1px solid #ADABAB;
+}
+
+.handle{
+  color: 	#FFD700;
+}
+
+/*user names*/
+h1{
+  font-family: helvetica;
+  font-size:14pt;
+}
+/*tweet text*/
+h2{
+  font-family:arial;
+  font-size:12pt;
+}
+h3{
+  font-family: helvetica;
+  font-size:14pt;
+}
+
+iframe{
+  width:100%;
+  height:400px;
+  margin:auto;
+  background-color:#F9F9FB;
+  border:none;
+  padding:0px;
+
+}
+
+.col-md-6{
+  margin:auto;
+  background-color:#F9F9FB;
+}
+
+.tweet{
+  font-family:helvetica;
+  color:#ADABAB;
+  font-weight:lighter;
+  padding:5px;
+  vertical-align: top;
+
+}
+
+.flickr-img{
+  opacity: 1;
+-webkit-transition: .3s ease-in-out;
+transition: .3s ease-in-out;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin:2px;
+  display:inline-block;
+  margin-bottom: 20px;
+}
+
+.flickr-img:hover{
+  opacity: .65;
+}

@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Flower Boy</title>
+    <meta name="description" content="Flower Boy">
+    <meta name="author" content="Michael McGowan">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="row header">
+        <div class="col-md-12">
+          <!-- background header image -->
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+
+  <div class="row">
+      <div class="col-md-4">
+        <h4>Twitter Feed</h4>
+        <iframe src="twitter.php" id="#twitter" width="100%"></iframe>
+      </div>
+
+    <div class="col-md-8">
+      <h4>Tour Locations / Dates</h4>
+      <div id="map"></div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-12">
+      <br />
+    </div>
+      <div id="flikpics"></div>
+    </div>
+
+    <!-- <audio class="hidden-xl hidden-lg hidden-md hidden-sm hidden-xs " controls autoplay>
+      <source src="boredom.mp3" type="audio/mpeg">
+    </audio> -->
+
+</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      function initMap() {
+
+        // MAP CENTER
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          styles: [
+      {
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+      ]
+      },
+      {
+      "elementType": "labels.icon",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#616161"
+      }
+      ]
+      },
+      {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+      {
+        "color": "#f5f5f5"
+      }
+      ]
+      },
+      {
+      "featureType": "administrative",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "administrative.land_parcel",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "administrative.land_parcel",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#bdbdbd"
+      }
+      ]
+      },
+      {
+      "featureType": "administrative.neighborhood",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "poi",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "poi",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+      ]
+      },
+      {
+      "featureType": "poi",
+      "elementType": "labels.text",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#757575"
+      }
+      ]
+      },
+      {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+      ]
+      },
+      {
+      "featureType": "poi.park",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+      ]
+      },
+      {
+      "featureType": "road",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#ffffff"
+      }
+      ]
+      },
+      {
+      "featureType": "road",
+      "elementType": "labels",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "road",
+      "elementType": "labels.icon",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "road.arterial",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#757575"
+      }
+      ]
+      },
+      {
+      "featureType": "road.highway",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#dadada"
+      }
+      ]
+      },
+      {
+      "featureType": "road.highway",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#616161"
+      }
+      ]
+      },
+      {
+      "featureType": "road.local",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+      ]
+      },
+      {
+      "featureType": "transit",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "transit.line",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#e5e5e5"
+      }
+      ]
+      },
+      {
+      "featureType": "transit.station",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#eeeeee"
+      }
+      ]
+      },
+      {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+      {
+        "color": "#c9c9c9"
+      }
+      ]
+      },
+      {
+      "featureType": "water",
+      "elementType": "labels.text",
+      "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+      },
+      {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+      {
+        "color": "#9e9e9e"
+      }
+      ]
+      }
+      ],
+        center: {lat: 39.0119, lng: -98.4842}
+        });
+
+        // VANCOUVER
+        var vancouverLabel = "01/26 – Vancouver, BC @ PNE Forum";
+        var vancouverPopup = new google.maps.InfoWindow({
+          content: vancouverLabel
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: 49.2827, lng: -123.1207},
+          map: map
+        });
+        marker.addListener('click', function(){
+          vancouverPopup.open(map, marker);
+        });
+
+        // PORTLAND
+        var portLabel = "01/27 – Portland, OR @ Memorial Coliseum";
+        var portPopup = new google.maps.InfoWindow({
+          content: portLabel
+        })
+        var marker1 = new google.maps.Marker({
+          position: {lat: 45.5231, lng: -122.6765},
+          map: map
+        });
+        marker1.addListener('click', function(){
+          portPopup.open(map, marker1);
+        });
+
+        // SAN FRANCISCO
+        var sfLabel = "01/29 – San Francisco, CA @ The Armory";
+        var sfPopup = new google.maps.InfoWindow({
+          content: sfLabel
+        })
+        var marker2 = new google.maps.Marker({
+          position: {lat: 37.7749, lng: -122.4194},
+          map: map
+        });
+        marker2.addListener('click', function(){
+          sfPopup.open(map, marker2);
+        });
+
+        // SACRAMENTO
+        var sacLabel = "01/31 – Sacramento, CA @ Memorial Auditorium";
+        var sacPopup = new google.maps.InfoWindow({
+          content: sacLabel
+        })
+        var marker3 = new google.maps.Marker({
+          position: {lat: 38.5816, lng: -121.4944},
+          map: map
+        });
+        marker3.addListener('click', function(){
+          sacPopup.open(map, marker3);
+        });
+
+        // SAN DIEGO
+        var sdLabel = "02/02 – San Diego, CA @ Valley View Casino Center";
+        var sdPopup = new google.maps.InfoWindow({
+          content: sdLabel
+        })
+        var marker4 = new google.maps.Marker({
+          position: {lat: 32.7157, lng: -117.1611},
+          map: map
+        });
+        marker4.addListener('click', function(){
+          sdPopup.open(map, marker4);
+        });
+
+        // TEMPE
+        var tempeLabel = "02/03 – Tempe, AZ @ Marquee Theatre";
+        var tempePopup = new google.maps.InfoWindow({
+          content: tempeLabel
+        })
+        var marker5 = new google.maps.Marker({
+          position: {lat: 33.4255, lng: -111.9400},
+          map: map
+        });
+        marker5.addListener('click', function(){
+          tempePopup.open(map, marker5);
+        });
+
+        // DENVER
+        var denLabel = "02/06 – Denver, CO @ 1stBank Center";
+        var denPopup = new google.maps.InfoWindow({
+          content: denLabel
+        })
+        var marker6 = new google.maps.Marker({
+          position: {lat: 39.7392, lng: -104.9903},
+          map: map
+        });
+        marker6.addListener('click', function(){
+          denPopup.open(map, marker6);
+        });
+
+        // KANSAS CITY
+        var kcLabel = "02/07 – Kansas City, MO @ Arvest Bank Theatre";
+        var kcPopup = new google.maps.InfoWindow({
+          content: kcLabel
+        })
+        var marker7 = new google.maps.Marker({
+          position: {lat: 39.0997, lng: -94.5786},
+          map: map
+        });
+        marker7.addListener('click', function(){
+          kcPopup.open(map, marker7);
+        });
+
+        // DALLAS
+        var dallasLabel = "02/08 – Dallas, TX @ Bomb Factory";
+        var dallasPopup = new google.maps.InfoWindow({
+          content: dallasLabel
+        })
+        var marker8 = new google.maps.Marker({
+          position: {lat: 32.7767, lng: -96.7970},
+          map: map
+        });
+        marker8.addListener('click', function(){
+          dallasPopup.open(map, marker8);
+        });
+
+        // ATLANTA
+        var atlLabel = "02/10 – Atlanta, GA @ World Congress Center";
+        var atlPopup = new google.maps.InfoWindow({
+          content: atlLabel
+        })
+        var marker9 = new google.maps.Marker({
+          position: {lat: 33.7490, lng: -84.3880},
+          map: map
+        });
+        marker9.addListener('click', function(){
+          atlPopup.open(map, marker9);
+        });
+
+        // MIAMI
+        var miamiLabel = "02/12 – Miami, FL @ James L. Knight Center";
+        var miamiPopup = new google.maps.InfoWindow({
+          content: miamiLabel
+        })
+        var marker10 = new google.maps.Marker({
+          position: {lat: 25.7617, lng: -80.1918},
+          map: map
+        });
+        marker10.addListener('click', function(){
+          miamiPopup.open(map, marker10);
+        });
+
+        // ORLANDO
+        var orlLabel = "02/13 – Orlando, FL @ Orlando Amphitheatre";
+        var orlPopup = new google.maps.InfoWindow({
+          content: orlLabel
+        })
+        var marker11 = new google.maps.Marker({
+          position: {lat: 28.5383, lng: -81.3792},
+          map: map
+        });
+        marker11.addListener('click', function(){
+          orlPopup.open(map, marker11);
+        });
+
+        // PHILLY
+        var philLabel = "02/15 – Philly, PA @ Liacouras Center";
+        var philPopup = new google.maps.InfoWindow({
+          content: philLabel
+        })
+        var marker12 = new google.maps.Marker({
+          position: {lat: 39.9526, lng: -75.1652},
+          map: map
+        });
+        marker12.addListener('click', function(){
+          philPopup.open(map, marker12);
+        });
+
+        // TORONTO
+        var torLabel = "02/17 – Toronto, ON @ Ricoh Coliseum";
+        var torPopup = new google.maps.InfoWindow({
+          content: torLabel
+        })
+        var marker13 = new google.maps.Marker({
+          position: {lat: 43.6532, lng: -79.3832},
+          map: map
+        });
+        marker13.addListener('click', function(){
+          torPopup.open(map, marker13);
+        });
+
+        // MONTREAL
+        var monLabel = "02/18 – Montreal, QC @ MTELUS";
+        var monPopup = new google.maps.InfoWindow({
+          content: monLabel
+        })
+        var marker14 = new google.maps.Marker({
+          position: {lat: 45.5017, lng: -73.5673},
+          map: map
+        });
+        marker14.addListener('click', function(){
+          monPopup.open(map, marker14);
+        });
+
+        // PITTSBURGH
+        var pittLabel = "02/20 – Pittsburgh, PA @ Stage AE";
+        var pittPopup = new google.maps.InfoWindow({
+          content: pittLabel
+        })
+        var marker15 = new google.maps.Marker({
+          position: {lat: 40.4406, lng: -79.9959},
+          map: map
+        });
+        marker15.addListener('click', function(){
+          pittPopup.open(map, marker15);
+        });
+
+        // ROCHESTER
+        var rochLabel = "02/21 – Rochester, NY @ Main Street Armory";
+        var rochPopup = new google.maps.InfoWindow({
+          content: rochLabel
+        })
+        var marker16 = new google.maps.Marker({
+          position: {lat: 43.1610, lng: -77.6109},
+          map: map
+        });
+        marker16.addListener('click', function(){
+          rochPopup.open(map, marker16);
+        });
+
+        // NEW YORK
+        var nyLabel = "02/23 – New York, NY @ The Theater at MSG";
+        var nyPopup = new google.maps.InfoWindow({
+          content: nyLabel
+        })
+        var marker17 = new google.maps.Marker({
+          position: {lat: 40.7128, lng: -74.0060},
+          map: map
+        });
+        marker17.addListener('click', function(){
+          nyPopup.open(map, marker17);
+        });
+
+        // DC
+        var dcLabel = "02/25 – Washington D.C. @ The Anthem";
+        var dcPopup = new google.maps.InfoWindow({
+          content: dcLabel
+        })
+        var marker18 = new google.maps.Marker({
+          position: {lat: 38.9072, lng: -77.0369},
+          map: map
+        });
+        marker18.addListener('click', function(){
+          dcPopup.open(map, marker18);
+        });
+
+        // DETROIT
+        var detLabel = "02/27 – Detroit, MI @ Masonic Temple Theatre";
+        var detPopup = new google.maps.InfoWindow({
+          content: detLabel
+        })
+        var marker19 = new google.maps.Marker({
+          position: {lat: 42.3314, lng: -83.0458},
+          map: map
+        });
+        marker19.addListener('click', function(){
+          detPopup.open(map, marker19);
+        });
+
+        // MADISON
+        var madLabel = "03/01 – Madison, WI @ Alliant Energy Center";
+        var madPopup = new google.maps.InfoWindow({
+          content: madLabel
+        })
+        var marker20 = new google.maps.Marker({
+          position: {lat: 43.0731, lng: -89.4012},
+          map: map
+        });
+        marker20.addListener('click', function(){
+          madPopup.open(map, marker20);
+        });
+
+        // CHICAGO
+        var chiLabel = "03/02 – Chicago, IL @ Aragon Ballroom";
+        var chiPopup = new google.maps.InfoWindow({
+          content: chiLabel
+        })
+        var marker21 = new google.maps.Marker({
+          position: {lat: 41.8781, lng: -87.6298},
+          map: map
+        });
+        marker21.addListener('click', function(){
+          chiPopup.open(map, marker21);
+        });
+
+        // MILWAUKEE
+        var milLabel = "03/04 – Milwaukee, WI @ Eagles Ballroom";
+        var milPopup = new google.maps.InfoWindow({
+          content: milLabel
+        })
+        var marker22 = new google.maps.Marker({
+          position: {lat: 43.0389, lng: -87.9065},
+          map: map
+        });
+        marker22.addListener('click', function(){
+          milPopup.open(map, marker22);
+        });
+
+
+      }
+      </script>
+
+      <script>
+
+      var html = ""
+      var apiurl = "https://api.flickr.com/services/feeds/photos_public.gne?tags=tylerthecreator&tagmode=any&format=json&jsoncallback=?"
+
+      $(document).ready(function() {
+
+      $.getJSON(apiurl,function(json){
+          // console.log(json);
+
+      $.each(json.items,function(i,data){
+           // html += '<p>From:"'+ data.author_id+'"</p>';
+           html += '<div class="col-xs-12 col-sm-12 col-md-3"><div class="flickr"><a href="' + data.link + '" target="_newtab"><img src ="'
+           + data.media.m + '" class="flickr-img"></a></div></div>'
+           });
+       $("#flikpics").append(html);
+      });
+      });
+
+      // var photoJson = "";
+      //
+      // $.ajax({
+      //     type: "GET",
+      //     headers: {"Access-Control-Allow-Origin": '*'},
+      //     url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=tylerthecreator&format=json"
+      //   }).done(function (data) {
+      //     console.log(data);
+      //     photoJson = JSON.parse(data);
+      //   });
+      //
+      //   photoJson = photoJson["items"];
+      //
+      //   for(var i = 0; i < photoJson.length; i++) {
+      //     var link = photoJson[i]['media']['m'];
+      //     $('#section').append('<img src=' + link + '>');
+      //   }
+
+    </script>
+
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADcHBFXzwXq6XpPh9xYt4P24SPPknyJUo&callback=initMap">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+  </body>
+</html>
